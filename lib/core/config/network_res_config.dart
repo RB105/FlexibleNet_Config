@@ -2,12 +2,15 @@ abstract class NetworkResponse {
   NetworkResponse();
 }
 
-class NetworkSucceed extends NetworkResponse {
-  NetworkSucceed();
+class NetworkSucceed<T> extends NetworkResponse {
+  T model;
+  NetworkSucceed(this.model);
 }
 class NetworkHttpError extends NetworkResponse {
-  NetworkHttpError();
+  String statusMessage;
+  NetworkHttpError(this.statusMessage);
 }
 class NetworkException extends NetworkResponse {
-  NetworkException();
+  String exception;
+  NetworkException(this.exception);
 }
