@@ -10,7 +10,7 @@ class UsersService {
   Future<NetworkResponse> getUser() async {
     try {
       Response response =
-          await DioConfig.createRequest().get(ProjectUrls.users);
+          await DioConfig.createRequest().get("https://jsonplaceholder.typicode.com/users");
       if (response.statusCode == 200) {
         return NetworkSucceed((response.data as List)
             .map((e) => UsersModel.fromJson(e))

@@ -13,25 +13,16 @@ class UsersRepository {
   // isar localdb
   late Isar db;
 
-  // from local db
-  Future<dynamic> getUsersLocal() async {
-    await openIsar();
-    if (await db.usersModels.count() == 0) {
-      return getUsersRemote();
-    } else {
-      return db.usersModels.where().findAll();
-    }
-  }
-
   // from network
-  Future<dynamic> getUsersRemote() async {
+  Future<dynamic> getUsers() async {
     return await usersService.getUser().then((NetworkResponse response) async {
       if (response is NetworkSucceed<List<UsersModel>>) {
         await openIsar();
-        await putToDatabase(response.model);
+        await putToDatabase((response as NetworkSucceed<List<UsersModel>>).model);
+        print("Shetgacha keldi");
         return await db.usersModels.where().findAll();
       } else {
-        return response;
+        return response.toString();
       }
     });
   }
@@ -48,7 +39,7 @@ class UsersRepository {
 
   // put data
   Future<void> putToDatabase(List<UsersModel> data) async {
-    db.writeTxn(() async {
+   await db.writeTxn(() async {
       await db.usersModels.clear();
       await db.usersModels.putAll(data);
     });
