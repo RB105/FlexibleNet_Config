@@ -30,13 +30,13 @@ class CurrencyModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['code'] = this.code;
-    data['cb_price'] = this.cbPrice;
-    data['nbu_buy_price'] = this.nbuBuyPrice;
-    data['nbu_cell_price'] = this.nbuCellPrice;
-    data['date'] = this.date;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['code'] = code;
+    data['cb_price'] = cbPrice;
+    data['nbu_buy_price'] = nbuBuyPrice;
+    data['nbu_cell_price'] = nbuCellPrice;
+    data['date'] = date;
     return data;
   }
 }

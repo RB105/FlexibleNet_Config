@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flexible/core/config/network_res_config.dart';
 import 'package:flexible/data/model/currency_model/currency_model.dart';
+import 'package:flexible/data/model/user_model/users_model.dart';
 import 'package:flexible/data/service/currency_service.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -21,7 +22,7 @@ class CurrencyRepository {
         // initialization
         currencyDB = await openIsar();
         await putToDatabase(response.model);
-        return currencyDB;
+        return await currencyDB.currencyModels.where().findAll();
       } else {
         return response;
       }
@@ -32,7 +33,7 @@ class CurrencyRepository {
   Future<Isar> openIsar() async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
     if (Isar.instanceNames.isEmpty) {
-      return await Isar.open([CurrencyModelSchema], directory: appDocDir.path);
+      return await Isar.open([UsersModelSchema,CurrencyModelSchema], directory: appDocDir.path);
     } else {
       return await Future.value(Isar.getInstance());
     }

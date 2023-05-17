@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flexible/cubit/users_cubit/users_states.dart';
 import 'package:flexible/data/model/currency_model/currency_model.dart';
 import 'package:flexible/data/repository/currency_repository.dart';
 
