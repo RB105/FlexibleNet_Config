@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flexible/data/model/user_model/users_model.dart';
+import 'package:flexible/data/model/users/users_model.dart';
 import 'package:flexible/data/repository/users_repository.dart';
 import 'package:isar/isar.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';

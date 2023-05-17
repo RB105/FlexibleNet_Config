@@ -1,7 +1,7 @@
 
-import 'package:flexible/cubit/currency_cubit/currency_states.dart';
-import 'package:flexible/cubit/users_cubit/users_states.dart';
-import 'package:flexible/view/home_page.dart';
+import 'package:flexible/cubit/currency/currency_states.dart';
+import 'package:flexible/cubit/users/users_states.dart';
+import 'package:flexible/view/current_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

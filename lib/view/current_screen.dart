@@ -6,10 +6,10 @@ class CurrentScreen extends StatefulWidget {
   const CurrentScreen({super.key});
 
   @override
-  State<CurrentScreen> createState() => _HomePageState();
+  State<CurrentScreen> createState() => _CurrentScreenState();
 }
 
-class _HomePageState extends State<CurrentScreen> {
+class _CurrentScreenState extends State<CurrentScreen> {
   final List<Widget> _pages = [const UsersPage(), const CurrencyPage()];
   int _currentIndex = 0;
   @override
@@ -17,7 +17,7 @@ class _HomePageState extends State<CurrentScreen> {
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+        //type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         fixedColor: Colors.black,
         items: const [

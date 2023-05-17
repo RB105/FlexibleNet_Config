@@ -1,4 +1,4 @@
-import 'package:flexible/data/model/currency_model/currency_model.dart';
+import 'package:flexible/data/model/currency/currency_model.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyListBuilder extends StatelessWidget {

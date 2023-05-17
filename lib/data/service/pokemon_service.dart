@@ -3,18 +3,15 @@ import 'package:flexible/core/config/dio_catch_err_config.dart';
 import 'package:flexible/core/config/dio_config.dart';
 import 'package:flexible/core/config/network_res_config.dart';
 import 'package:flexible/core/constants/project_urls.dart';
-import 'package:flexible/data/model/currency/currency_model.dart';
+import 'package:flexible/data/model/pokemon/pokemon_model.dart';
 
-class CurrencyService {
-  Future<NetworkResponse> getCurrency() async {
+class PokemonService {
+  Future<NetworkResponse> getPokemon() async {
     try {
-      Response response =
-          await DioConfig.createRequest().get(ProjectUrls.currency);
+      Response response = await DioConfig.createRequest().get(ProjectUrls.pokemon);
 
       if (response.statusCode == 200) {
-        return NetworkSucceed((response.data as List)
-            .map((e) => CurrencyModel.fromJson(e))
-            .toList());
+        return NetworkSucceed(PokemonModel.fromJson(response.data));
       } else {
         return NetworkHttpError(response.statusMessage.toString());
       }

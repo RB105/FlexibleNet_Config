@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flexible/data/model/currency_model/currency_model.dart';
+import 'package:flexible/data/model/currency/currency_model.dart';
 import 'package:flexible/data/repository/currency_repository.dart';
 
 part 'currency_cubit.dart';

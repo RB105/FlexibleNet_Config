@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flexible/core/config/network_res_config.dart';
-import 'package:flexible/data/model/currency_model/currency_model.dart';
-import 'package:flexible/data/model/user_model/users_model.dart';
+import 'package:flexible/data/model/currency/currency_model.dart';
+import 'package:flexible/data/model/users/users_model.dart';
 import 'package:flexible/data/service/users_service.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,7 +30,11 @@ class UsersRepository {
   //opens database
   Future<Isar> openIsar() async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
-      return await Isar.open([UsersModelSchema,CurrencyModelSchema], directory: appDocDir.path);    
+      if (Isar.instanceNames.isEmpty) {
+      return await Isar.open([UsersModelSchema,CurrencyModelSchema], directory: appDocDir.path);
+    } else {
+      return await Future.value(Isar.getInstance());
+    }    
   }
 
   // put data
