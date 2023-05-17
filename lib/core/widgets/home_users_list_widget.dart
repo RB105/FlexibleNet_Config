@@ -1,5 +1,5 @@
 
-import 'package:flexible/data/model/user_model.dart/users_model.dart';
+import 'package:flexible/data/model/user_model/users_model.dart';
 import 'package:flutter/material.dart';
 
 class UserListBuilder extends StatelessWidget {
