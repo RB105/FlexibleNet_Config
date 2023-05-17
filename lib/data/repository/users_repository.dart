@@ -17,8 +17,8 @@ class UsersRepository {
   Future<dynamic> getUsers() async {
     return await usersService.getUser().then((NetworkResponse response) async {
       if (response is NetworkSucceed<List<UsersModel>>) {
-        await openIsar();
-        await putToDatabase((response as NetworkSucceed<List<UsersModel>>).model);
+        db = await openIsar();
+        await putToDatabase(response.model);
         print("Shetgacha keldi");
         return await db.usersModels.where().findAll();
       } else {
